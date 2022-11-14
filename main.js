@@ -1,9 +1,4 @@
-var socket = io("https://criarpc.loca.lt/", {
-  withCredentials: true,
-  extraHeaders: {
-    "pcgratis": "abcd"
-  }
-});
+var socket = io("server.pcgratis.ga:342");
 
 var daypicker = document.getElementById('daypicker');
 var timepicker = document.getElementById('timepicker');
