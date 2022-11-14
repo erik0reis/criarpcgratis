@@ -1,5 +1,5 @@
 var socket = io("https://server.pcgratis.ga:342", {
-  withCredentials: true
+  
 });
 
 var daypicker = document.getElementById('daypicker');
