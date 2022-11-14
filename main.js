@@ -1,4 +1,8 @@
-var socket = io("https://server.pcgratis.ga:342");
+var socket = io("https://server.pcgratis.ga:342", {
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "abcd"
+});
 
 var daypicker = document.getElementById('daypicker');
 var timepicker = document.getElementById('timepicker');
