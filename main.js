@@ -1,5 +1,5 @@
 var socket = io("wss://server.pcgratis.ga:342", {
-    transports: ['websocket'];
+    transports: ['websocket']
 });
 
 var daypicker = document.getElementById('daypicker');
