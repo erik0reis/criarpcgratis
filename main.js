@@ -1,4 +1,4 @@
-const socket = io("ws://server.pcgratis.ga:342", {transports: ['websocket']});
+var socket = io("ws://server.pcgratis.ga:342", {transports: ['websocket']});
 
 var daypicker = document.getElementById('daypicker');
 var timepicker = document.getElementById('timepicker');
