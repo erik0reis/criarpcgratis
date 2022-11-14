@@ -1,4 +1,4 @@
-var socket = io("http://187.105.108.61:342");
+var socket = io("https://criarpcgratis.loca.lt/");
 
 var daypicker = document.getElementById('daypicker');
 var timepicker = document.getElementById('timepicker');
