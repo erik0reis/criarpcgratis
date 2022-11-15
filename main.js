@@ -93,30 +93,29 @@ socket.on('pc created', () => {
     window.location.href = "https://www.pcgratis.ga/pccreated.html";
 })
 
-socket.on('show avaliable dates', (datelist) => {
+socket.on('show avaliable dates', (datelist, avaliabledatelist) => {
     var timebuttons = document.querySelectorAll('.timebutton');
     timebuttons.forEach(element => {
         element.remove();
     });
-    for (let hourindex = 0; hourindex < 24; hourindex++) {
-        for (let minuteindex = 0; minuteindex < 2; minuteindex++) {
-            var element = document.createElement('button');
-            element.className = "timebutton";
-            element.style.color = "green";
-            element.innerHTML = `${hourindex.toString().padStart(2, '0')}:${minuteindex == 0 ? "00" : "30"}`;
-            element.addEventListener('click', () => { choosetime(hourindex, (minuteindex == 0 ? 0 : 30)) });
-            timepicker.appendChild(element);
+    datelist.forEach(date => {
+        date = new Date(date);
+        var element = document.createElement('button');
+        element.className = "timebutton";
+        element.style.color = "green";
+        element.innerHTML = `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}`;
+        element.addEventListener('click', () => { choosetime(date.getHours(), date.getMinutes())});
+        timepicker.appendChild(element);
 
-            var space = document.createElement('span');
-            space.innerHTML = " ";
+        var space = document.createElement('span');
+        space.innerHTML = " ";
 
-            timepicker.appendChild(space);
-        }
-    }
+        timepicker.appendChild(space);
+    });
     var timebuttons = document.querySelectorAll('.timebutton');
     timebuttons.forEach(element => {
         var disable = true;
-        datelist.forEach((date) => {
+        avaliabledatelist.forEach((date) => {
             if (date != null) {
                 date = new Date(date.toString());
                 if (element.innerHTML == `${date.getHours().toString().padStart(2, '0')}:${date.getMinutes().toString().padStart(2, '0')}` &&
